@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Todo List with pure Js</title>
+</head>
+
+<body>
+  
+
+  <!-- Formulário -->
+
+  <div>
+    <form method="post">
+      <input type="text" id="atividade" placeholder="Digite sua atividade aqui">
+      <input type="date" id="dataAtv">
+      <input type="submit" id="btnCadastrar" value="Cadastrar">
+    </form>
+  </div>
+
+  <!-- Lista -->
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Atividade</th>
+          <th>Data</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody id="lista">
+        <tr>
+          <th>1</th>
+          <th>Atv1</th>
+          <th>16/09/2020</th>
+          <th> <input type="checkbox" name="" id=""></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <script src="script.js"></script>
+
+</body>
+
+</html>
