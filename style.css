@@ -1,3 +1,70 @@
-th, td , tr{
+* {
+    box-sizing: border-box;
+}
+
+.options-bar{
+    height: 50px;
+    width: 500px;
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.options-bar > button{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Arial';
     border: 2px solid black;
+    cursor: pointer;
+}
+
+.options-bar > button:hover{
+    opacity: 0.8;
+}
+
+.options-bar > button.active{
+    background: green;
+    color: white;
+}
+
+.options-bar > button.active:hover{
+    cursor: auto;
+    opacity: 1;
+}
+
+/* Form  */
+form{
+    width: 500px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    margin-top: 20px;
+}
+
+input{
+    height: 35px;
+    padding: 5px 10px;
+}
+
+input[type=submit]{
+    background: green;
+    color: white;
+}
+
+table{
+    width: 500px;
+    
+}   
+table thead{
+}
+table th, thead tr{
+    border: 2px solid black;
+}
+
+table thead th:last-child{
+    border-right: 0px;
 }

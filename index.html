@@ -11,14 +11,25 @@
 
 <body>
   
-
+  <!-- Head Options -->
+  <div class="options-bar">
+    <button class="all active" target="all">
+      All Task
+    </button>
+    <button class="done" target="done">
+      Done
+    </button>
+    <button class="progress" target="progress">
+      In progress
+    </button>
+  </div>
+  
   <!-- Formulário -->
-
   <div>
     <form method="post">
-      <input type="text" id="atividade" placeholder="Digite sua atividade aqui">
-      <input type="date" id="dataAtv">
-      <input type="submit" id="btnCadastrar" value="Cadastrar">
+      <input type="text" id="activity" placeholder="Typing some activity here">
+      <input type="date" id="timeActv">
+      <input type="submit" id="btnRegister">
     </form>
   </div>
 
@@ -33,13 +44,7 @@
           <th>Ação</th>
         </tr>
       </thead>
-      <tbody id="lista">
-        <tr>
-          <th>1</th>
-          <th>Atv1</th>
-          <th>16/09/2020</th>
-          <th> <input type="checkbox" name="" id=""></th>
-        </tr>
+      <tbody id="list">
       </tbody>
     </table>
   </div>
