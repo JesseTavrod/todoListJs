@@ -57,12 +57,13 @@ input[type=submit]{
 
 table{
     width: 500px;
+    border-collapse: collapse;
     
 }   
 table thead{
 }
-table th, thead tr{
-    border: 2px solid black;
+table th, table tr, thead tr{
+    border: 1px solid black;
 }
 
 table thead th:last-child{

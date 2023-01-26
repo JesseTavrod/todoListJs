@@ -1,30 +1,28 @@
-var atividade = document.getElementById('activity');
+var task = document.getElementById('activity');
 var dtAtv = document.querySelector('#timeActv');
 const btnCadastrar = document.querySelector('input[type=submit]');
 const btnTask = document.querySelectorAll('button');
-
+var arrayNew;
 var indice = 0;
 
-btnCadastrar.addEventListener('click', (e) => {
-    e.preventDefault()
+createList('open')
 
-    let lista = document.getElementById('list')
-    let linha =  document.createElement('tr')
+function addRow( name, time, act){
+    
+    let allListTask = document.getElementById('list')
+    let newRow =  document.createElement('tr')
     let celId = document.createElement('th')
-    celId.innerText = ++indice
-
     let celAtv = document.createElement('td')
-    celAtv.innerText = atividade.value;
-
-
     let celData = document.createElement('td')
-    let dataFormata = new Date(dtAtv.value).toLocaleDateString('pt-br', {timeZone: 'utc'})
-    celData.innerText = dataFormata
+
+    celId.innerText = ++indice
+    celAtv.innerText = name;
+    celData.innerText = time;
 
     let celAct = document.createElement('td')
     let checkAct = document.createElement('select')
 
-    array = ['Done', 'Progress'];
+    array = ['Open','Done', 'Progress'];
 
     for(let i = 0; i < array.length; ++i){
         let option = document.createElement('option')
@@ -33,26 +31,71 @@ btnCadastrar.addEventListener('click', (e) => {
         checkAct.appendChild(option);
     }
 
-    checkAct.id = 'atv'+indice;
+    newRow.appendChild(celId);
+    newRow.appendChild(celAtv);
+    newRow.appendChild(celData);
+    newRow.appendChild(celAct);
+    newRow.appendChild(checkAct);
+    allListTask.appendChild(newRow);
 
-    celAct.appendChild(checkAct);
-    linha.appendChild(celId);
-    linha.appendChild(celAtv);
-    linha.appendChild(celData);
-    linha.appendChild(celAct);
-    lista.appendChild(linha);
+}
 
+function createList(){
+    if (localStorage.hasOwnProperty("listTasks")) {
+        let tasks = JSON.parse(localStorage.getItem("listTasks"));
+
+        for(let i = 0; i < tasks.length; ++i){
+            let nameTask = tasks[i].task;
+            let timeTask= tasks[i].time;
+            let act = tasks[i].status;
+            
+            addRow(nameTask, timeTask, act);
+        }
+    }
+}
+
+function addToLocalStorege(task, time){
+    let tasks = [];
+
+    if (localStorage.hasOwnProperty("listTasks")) {
+        tasks = JSON.parse(localStorage.getItem("listTasks"))
+    }
+
+    let newInfos = {
+        task: task,
+        time: time,
+        status: 'open'
+    }
+
+    tasks.push(newInfos);
+    localStorage.setItem("listTasks", JSON.stringify(tasks));
+}
+
+btnCadastrar.addEventListener('click', (e) => {
+    e.preventDefault()
+    let nameTask = task.value;
+    let act = 'open';
+    let newDate = new Date(dtAtv.value).toLocaleDateString('pt-br', {timeZone: 'utc'})
+    
+    addToLocalStorege( task.value, newDate, act); 
+    addRow(nameTask, newDate, act); 
 });
 
 btnTask.forEach( button => {
     button.addEventListener('click', changeTask);
 });
 
-function changeTask(vent){
-    let button = event.target;
+function changeTask(event){
+    let targetButton = event.target.getAttribute('target');
+    let i;
     
-    if(!button.classList.contains("active")){
-        button.classList.add('active');
+    for(i = 0; i < btnTask.length; ++i){
+        if(btnTask[i].getAttribute('target') == targetButton){
+            btnTask[i].classList.add('active')
+        } else {
+            btnTask[i].classList.remove('active')
+        }
     }
-    
+
+
 };
