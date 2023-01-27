@@ -1,56 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Todo List with pure Js</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <title>Todo List with pure Js</title>
-</head>
+  <body>
+    <main>
+      <div class="main-task">
+        <!-- Head Options -->
+        <div class="options-bar">
+          <button class="all active" target="0">All Task</button>
+          <button class="done" target="1">Done</button>
+          <button class="progress" target="2">In progress</button>
+        </div>
 
-<body>
-  
-  <!-- Head Options -->
-  <div class="options-bar">
-    <button class="all active" target="0">
-      All Task
-    </button>
-    <button class="done" target="1">
-      Done
-    </button>
-    <button class="progress" target="2">
-      In progress
-    </button>
-  </div>
-  
-  <!-- Formulário -->
-  <div>
-    <form method="post">
-      <input type="text" id="activity" placeholder="Typing some activity here">
-      <input type="date" id="timeActv">
-      <input type="submit" id="btnRegister">
-    </form>
-  </div>
+        <!-- Formulário -->
+        <div>
+          <form method="post">
+            <input
+              type="text"
+              id="activity"
+              placeholder="Typing some activity here"
+            />
+            <input type="date" id="timeActv" />
+            <input type="submit" id="btnRegister" />
+          </form>
+        </div>
 
-  <!-- Lista -->
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Atividade</th>
-          <th>Data</th>
-          <th>Ação</th>
-        </tr>
-      </thead>
-      <tbody id="list">
-      </tbody>
-    </table>
-  </div>
-  
-  <script src="./script.js"></script>
+        <!-- Lista -->
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Atividade</th>
+                <th>Data</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="list"></tbody>
+          </table>
+        </div>
+      </div>
 
-</body>
+      <!-- Tasks in Progress -->
+      <div class="progressTasks">
+        <h3>Progress Tasks</h3>
+        <div class="block-tasks">
+          <div class="row-task" target="1">
+            <div class="nameTask"></div>
 
+            <div class="timer">
+              <span class="hours">02</span> : <span class="minutes">30</span> :
+              <span class="seconds">30</span>
+            </div>
+            <div class="setTime">
+              <button class="stopTask" target="stopTask">Stop</button>
+              <button class="startTask" target="startTask">Start</button>
+              <button class="doneTask" target="doneTask">Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
