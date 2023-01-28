@@ -125,6 +125,7 @@ main{
     bordeR: none;
     font-weight: bold;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .progressTasks .row-task .setTime button.stopTask{
